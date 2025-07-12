@@ -29,6 +29,26 @@
             text-align: center;
             padding: 60px 0;
             color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 12em;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: 'Courier New', monospace;
+            z-index: 1;
+            pointer-events: none;
+            user-select: none;
         }
 
         .hero h1 {
@@ -351,8 +371,11 @@
 <body>
     <div class="container">
         <div class="hero">
-            <h1>TaskBot</h1>
-            <p>Stop wasting hours on boring computer tasks.<br>Get custom automation that works in minutes, not months.</p>
+            <div class="logo">&lt;/&gt;</div>
+            <div class="hero-content">
+                <h1>TaskBot</h1>
+                <p>Stop wasting hours on boring computer tasks.<br>Get custom automation that works in minutes, not months.</p>
+            </div>
         </div>
 
         <div class="main-content">
