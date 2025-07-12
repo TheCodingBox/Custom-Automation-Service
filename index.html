@@ -316,10 +316,6 @@
                         <h3>💰 Expense Nightmare</h3>
                         <p>"I want a spreadsheet that auto-calculates my expenses by category each month without me touching it."</p>
                     </div>
-                    <div class="pain-point">
-                        <h3>📈 Report Drudgery</h3>
-                        <p>"I create the same weekly report from 5 different sources. This takes me 2 hours every Friday."</p>
-                    </div>
                 </div>
             </div>
 
@@ -390,7 +386,7 @@
                 <h3>🚀 Get Your FREE Automation Audit</h3>
                 <p style="text-align: center; margin-bottom: 20px;">Tell me about your boring task. I'll send you a FREE plan to automate it (no commitment required).</p>
 
-                <form id="validationForm">
+                <form action="https://formspree.io/f/mrblzzve" method="POST" id="validationForm">
                     <div class="form-group">
                         <label for="name">Your Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -441,26 +437,9 @@
     </div>
 
     <script>
-        document.getElementById('validationForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
-
-            // Store form data (in a real app, this would go to a server)
-            console.log('Form submitted:', data);
-
-            // Show success message
-            alert('Thank you! I\'ll send you a custom automation plan within 24 hours. Check your email!');
-
-            // Reset form
-            this.reset();
-
-            // In a real implementation, you would:
-            // 1. Send this data to your email/CRM
-            // 2. Set up automated email responses
-            // 3. Track conversion metrics
-        });
+        // Form now submits directly to Formspree - no JavaScript needed!
+        // After successful submission, user will see Formspree's thank you page
+        // You can customize this in your Formspree dashboard
 
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
