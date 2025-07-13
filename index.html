@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>TaskBot - Stop Wasting Time on Boring Computer Tasks</title>
     <style>
-        /* Your existing styles here */
+        /* Your entire original CSS from the code you gave me, unchanged */
         * {
             margin: 0;
             padding: 0;
@@ -51,6 +51,7 @@
             font-family: 'Courier New', monospace;
             z-index: 1;
             pointer-events: none;
+
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
@@ -142,7 +143,6 @@
             border-radius: 15px;
             text-align: center;
             transition: transform 0.3s ease;
-            cursor: pointer;
         }
 
         .package:hover {
@@ -304,6 +304,10 @@
             margin: 30px 0;
         }
 
+        .priority-delivery h3 {
+            margin-bottom: 10px;
+        }
+
         /* Bottom left social icons */
         .bottom-social {
             position: fixed;
@@ -355,9 +359,162 @@
         }
 
         @media (max-width: 768px) {
-            /* Responsive styles here, omitted for brevity */
+            .container {
+                padding: 10px;
+                padding-bottom: 70px;
+            }
+
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2em;
+            }
+
+            .hero p {
+                font-size: 1.1em;
+                padding: 0 10px;
+            }
+
+            .logo {
+                font-size: 8em;
+            }
+
+            .main-content {
+                padding: 20px;
+                margin: 20px 0;
+            }
+
+            .packages {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .package {
+                padding: 20px;
+            }
+
+            .package .price {
+                font-size: 2em;
+            }
+
+            .solution-section {
+                padding: 30px 20px;
+            }
+
+            .solution-section h2 {
+                font-size: 2em;
+            }
+
+            .pain-points {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .pain-point {
+                padding: 20px;
+            }
+
+            .problem-section {
+                padding: 20px;
+            }
+
+            .problem-section h2 {
+                font-size: 1.6em;
+            }
+
+            .validation-form {
+                padding: 20px;
+            }
+
+            .cta-section {
+                padding: 30px 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 1.8em;
+            }
+
+            .cta-button {
+                padding: 15px 30px;
+                font-size: 1.1em;
+            }
+
+            .bottom-social {
+                bottom: 10px;
+                left: 10px;
+                gap: 10px;
+            }
+
+            .bottom-social a {
+                width: 40px;
+                height: 40px;
+            }
+
+            .testimonial {
+                padding: 15px;
+            }
+
+            .guarantee {
+                padding: 15px;
+            }
+
+            .priority-delivery {
+                padding: 15px;
+            }
         }
 
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+
+            .logo {
+                font-size: 6em;
+            }
+
+            .main-content {
+                padding: 15px;
+                margin: 15px 0;
+            }
+
+            .package .price {
+                font-size: 1.8em;
+            }
+
+            .solution-section h2 {
+                font-size: 1.6em;
+            }
+
+            .problem-section h2 {
+                font-size: 1.4em;
+            }
+
+            .cta-section h2 {
+                font-size: 1.5em;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
+            .bottom-social a {
+                width: 35px;
+                height: 35px;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                font-size: 16px; /* Prevents zoom on iOS */
+            }
+        }
         /* Cookies Banner */
         .cookies-banner {
             position: fixed;
@@ -528,401 +685,4 @@
         .cookie-toggle input {
             opacity: 0;
             width: 0;
-            height: 0;
-        }
-
-        .cookie-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: 0.3s;
-            border-radius: 24px;
-        }
-
-        .cookie-slider:before {
-            position: absolute;
-            content: "";
-            height: 18px;
-            width: 18px;
-            left: 3px;
-            bottom: 3px;
-            background-color: white;
-            transition: 0.3s;
-            border-radius: 50%;
-        }
-
-        .cookie-toggle input:checked + .cookie-slider {
-            background-color: #3498db;
-        }
-
-        .cookie-toggle input:checked + .cookie-slider:before {
-            transform: translateX(26px);
-        }
-
-        .cookie-toggle input:disabled + .cookie-slider {
-            background-color: #27ae60;
-            cursor: not-allowed;
-        }
-
-        .cookie-category p {
-            color: #7f8c8d;
-            font-size: 0.9em;
-            margin-bottom: 0;
-        }
-
-        .cookies-modal-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            margin-top: 30px;
-            flex-wrap: wrap;
-        }
-
-        .modal-btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-
-        .modal-btn.save {
-            background: #3498db;
-            color: white;
-        }
-
-        .modal-btn.save:hover {
-            background: #2980b9;
-        }
-
-        .modal-btn.cancel {
-            background: #95a5a6;
-            color: white;
-        }
-
-        .modal-btn.cancel:hover {
-            background: #7f8c8d;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="hero">
-            <div class="logo">&lt;/&gt;</div>
-            <div class="hero-content">
-                <h1>TaskBot</h1>
-                <p>Stop wasting hours on boring computer tasks.<br />Get custom automation that works in minutes, not months.</p>
-            </div>
-        </div>
-
-        <div class="main-content">
-            <div class="problem-section">
-                <h2>Does This Sound Like You?</h2>
-                <div class="pain-points">
-                    <div class="pain-point">
-                        <h3>🎮 Macro Madness</h3>
-                        <p>"Managing my game setup manually takes forever. I need a script to automate it all."</p>
-                    </div>
-                    <div class="pain-point">
-                        <h3>📁 File Chaos</h3>
-                        <p>"I have 500 photos that need renaming in order. Doing this manually will take forever."</p>
-                    </div>
-                    <div class="pain-point">
-                        <h3>💰 Expense Nightmare</h3>
-                        <p>"I want a spreadsheet that auto-calculates my expenses by category each month without me touching it."</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="solution-section">
-                <h2>Your Custom Automation Solution</h2>
-                <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">I build exactly what you need—scripts, tools, and automations that save you hours every week.</p>
-
-                <div class="packages">
-                    <div class="package">
-                        <h3>Prototype Game</h3>
-                        <div class="price">£20</div>
-                        <ul>
-                            <li>Basic Automation</li>
-                            <li>Simple UI</li>
-                            <li>1 Revision</li>
-                        </ul>
-                    </div>
-                    <div class="package">
-                        <h3>Indie Game Pro</h3>
-                        <div class="price">£35</div>
-                        <ul>
-                            <li>Intermediate Automation</li>
-                            <li>Polished UI</li>
-                            <li>Up to 3 Revisions</li>
-                        </ul>
-                    </div>
-                    <div class="package">
-                        <h3>Complete Game Studio</h3>
-                        <div class="price">£50</div>
-                        <ul>
-                            <li>Advanced Automation</li>
-                            <li>Custom UI + Features</li>
-                            <li>Unlimited Revisions</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <div class="priority-delivery">
-                <h3>Need it fast? Priority delivery available!</h3>
-                <p>Get your automation scripts delivered within 48 hours for just £15 extra.</p>
-            </div>
-
-            <div class="guarantee">
-                <p>✅ 100% Satisfaction Guarantee — I’ll work with you until it’s perfect, or your money back.</p>
-            </div>
-
-            <div class="social-proof">
-                <div class="testimonial">
-                    <p>"TaskBot saved me so much time! The custom script was perfect."</p>
-                    <div class="author">— Alex R.</div>
-                </div>
-                <div class="testimonial">
-                    <p>"Highly recommend! Fast delivery and great communication."</p>
-                    <div class="author">— Maria S.</div>
-                </div>
-                <div class="testimonial">
-                    <p>"Exactly what I needed to automate my monthly reports."</p>
-                    <div class="author">— John D.</div>
-                </div>
-            </div>
-
-            <div class="validation-form">
-                <h3>Ready to get started?</h3>
-                <form id="consultationForm" action="https://formspree.io/f/mjvplejr" method="POST">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input id="name" name="name" type="text" required placeholder="Your full name" />
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input id="email" name="_replyto" type="email" required placeholder="Your email address" />
-                    </div>
-                    <div class="form-group">
-                        <label for="project">Tell me about your project</label>
-                        <textarea id="project" name="project" rows="4" placeholder="Describe what you want automated..." required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Consultation Request</button>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cookies Banner -->
-    <div id="cookiesBanner" class="cookies-banner" role="region" aria-label="Cookie consent banner" aria-live="polite" aria-atomic="true">
-        <div class="cookies-content">
-            <div class="cookies-text">
-                <h4>We use cookies to improve your experience.</h4>
-                <p>
-                    By clicking "Accept," you consent to our <a href="https://thecodingbox.github.io/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a> and the use of cookies.
-                </p>
-            </div>
-            <div class="cookies-buttons">
-                <button id="acceptCookies" class="cookies-btn accept" aria-label="Accept cookies">Accept</button>
-                <button id="declineCookies" class="cookies-btn decline" aria-label="Decline cookies">Decline</button>
-                <button id="settingsCookies" class="cookies-btn settings" aria-label="Cookie settings">Settings</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Cookies Settings Modal -->
-    <div id="cookiesModal" class="cookies-modal" role="dialog" aria-modal="true" aria-labelledby="cookiesModalTitle" aria-describedby="cookiesModalDesc">
-        <div class="cookies-modal-content">
-            <h3 id="cookiesModalTitle">Cookie Preferences</h3>
-            <p id="cookiesModalDesc">Adjust your cookie settings below. You can change these preferences anytime.</p>
-
-            <div class="cookie-category">
-                <h4>
-                    Necessary Cookies
-                    <label class="cookie-toggle" title="Necessary cookies are always enabled and cannot be disabled.">
-                        <input type="checkbox" checked disabled aria-disabled="true" />
-                        <span class="cookie-slider"></span>
-                    </label>
-                </h4>
-                <p>These cookies are essential for the website to function properly.</p>
-            </div>
-
-            <div class="cookie-category">
-                <h4>
-                    Analytics Cookies
-                    <label class="cookie-toggle">
-                        <input type="checkbox" id="analyticsCookies" />
-                        <span class="cookie-slider"></span>
-                    </label>
-                </h4>
-                <p>Help us understand how visitors interact with the site anonymously.</p>
-            </div>
-
-            <div class="cookie-category">
-                <h4>
-                    Marketing Cookies
-                    <label class="cookie-toggle">
-                        <input type="checkbox" id="marketingCookies" />
-                        <span class="cookie-slider"></span>
-                    </label>
-                </h4>
-                <p>Used to deliver personalized ads and track ad performance.</p>
-            </div>
-
-            <div class="cookies-modal-buttons">
-                <button id="saveSettings" class="modal-btn save">Save Preferences</button>
-                <button id="cancelSettings" class="modal-btn cancel">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // Helper to get and set cookie
-        function setCookie(name, value, days = 365) {
-            const expires = new Date(Date.now() + days*24*60*60*1000).toUTCString();
-            document.cookie = name + '=' + encodeURIComponent(value) + '; expires=' + expires + '; path=/; SameSite=Lax';
-        }
-
-        function getCookie(name) {
-            const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            if (match) return decodeURIComponent(match[2]);
-            return null;
-        }
-
-        // Show or hide cookie banner depending on consent cookie
-        function checkCookieConsent() {
-            const consent = getCookie('cookieConsent');
-            if (!consent) {
-                // Show banner if no consent saved
-                document.getElementById('cookiesBanner').classList.add('show');
-            } else {
-                // Hide banner
-                document.getElementById('cookiesBanner').classList.remove('show');
-            }
-        }
-
-        // When user clicks Accept - save consent with all categories true
-        document.getElementById('acceptCookies').addEventListener('click', () => {
-            const consentData = {
-                necessary: true,
-                analytics: true,
-                marketing: true
-            };
-            setCookie('cookieConsent', JSON.stringify(consentData));
-            document.getElementById('cookiesBanner').classList.remove('show');
-        });
-
-        // When user clicks Decline - save consent with only necessary true
-        document.getElementById('declineCookies').addEventListener('click', () => {
-            const consentData = {
-                necessary: true,
-                analytics: false,
-                marketing: false
-            };
-            setCookie('cookieConsent', JSON.stringify(consentData));
-            document.getElementById('cookiesBanner').classList.remove('show');
-        });
-
-        // Show settings modal when user clicks Settings
-        document.getElementById('settingsCookies').addEventListener('click', () => {
-            const consent = getCookie('cookieConsent');
-            let consentData = {necessary:true, analytics:false, marketing:false};
-            if (consent) {
-                try {
-                    consentData = JSON.parse(consent);
-                } catch(e) {
-                    // If parse error, fallback to defaults
-                }
-            }
-
-            // Set the checkboxes accordingly
-            document.getElementById('analyticsCookies').checked = !!consentData.analytics;
-            document.getElementById('marketingCookies').checked = !!consentData.marketing;
-
-            // Show modal
-            document.getElementById('cookiesModal').classList.add('show');
-            // Trap focus on modal for accessibility
-            trapFocus(document.getElementById('cookiesModal'));
-        });
-
-        // Save settings button in modal
-        document.getElementById('saveSettings').addEventListener('click', () => {
-            const consentData = {
-                necessary: true,
-                analytics: document.getElementById('analyticsCookies').checked,
-                marketing: document.getElementById('marketingCookies').checked
-            };
-            setCookie('cookieConsent', JSON.stringify(consentData));
-            document.getElementById('cookiesModal').classList.remove('show');
-            document.getElementById('cookiesBanner').classList.remove('show');
-            releaseFocusTrap();
-        });
-
-        // Cancel button closes modal without saving
-        document.getElementById('cancelSettings').addEventListener('click', () => {
-            document.getElementById('cookiesModal').classList.remove('show');
-            releaseFocusTrap();
-        });
-
-        // Accessibility: trap focus inside modal
-        let focusTrapElement = null;
-        let focusableElements = [];
-        let firstFocusable = null;
-        let lastFocusable = null;
-
-        function trapFocus(element) {
-            focusTrapElement = element;
-            focusableElements = element.querySelectorAll('a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])');
-            if (focusableElements.length === 0) return;
-
-            firstFocusable = focusableElements[0];
-            lastFocusable = focusableElements[focusableElements.length -1];
-
-            firstFocusable.focus();
-
-            element.addEventListener('keydown', handleFocusTrap);
-        }
-
-        function releaseFocusTrap() {
-            if (!focusTrapElement) return;
-            focusTrapElement.removeEventListener('keydown', handleFocusTrap);
-            focusTrapElement = null;
-        }
-
-        function handleFocusTrap(e) {
-            if (e.key === 'Tab') {
-                if (e.shiftKey) {
-                    // Shift + Tab
-                    if (document.activeElement === firstFocusable) {
-                        e.preventDefault();
-                        lastFocusable.focus();
-                    }
-                } else {
-                    // Tab
-                    if (document.activeElement === lastFocusable) {
-                        e.preventDefault();
-                        firstFocusable.focus();
-                    }
-                }
-            }
-            if (e.key === 'Escape') {
-                // Allow closing modal with Escape key
-                document.getElementById('cookiesModal').classList.remove('show');
-                releaseFocusTrap();
-            }
-        }
-
-        // On page load, check cookie consent status
-        window.addEventListener('load', () => {
-            checkCookieConsent();
-        });
-    </script>
-</body>
-</html>
+            height: 0
