@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>TaskBot - Stop Wasting Time on Boring Computer Tasks</title>
     <style>
-        /* Your entire original CSS from the code you gave me, unchanged */
         * {
             margin: 0;
             padding: 0;
@@ -51,7 +50,13 @@
             font-family: 'Courier New', monospace;
             z-index: 1;
             pointer-events: none;
+            user-select: none;
+        }
 
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
@@ -685,4 +690,338 @@
         .cookie-toggle input {
             opacity: 0;
             width: 0;
-            height: 0
+            height: 0;
+        }
+
+        .cookie-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.3s;
+            border-radius: 24px;
+        }
+
+        .cookie-slider:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.3s;
+            border-radius: 50%;
+        }
+
+        .cookie-toggle input:checked + .cookie-slider {
+            background-color: #3498db;
+        }
+
+        .cookie-toggle input:checked + .cookie-slider:before {
+            transform: translateX(26px);
+        }
+
+        .cookie-toggle input:disabled + .cookie-slider {
+            background-color: #27ae60;
+            cursor: not-allowed;
+        }
+
+        .cookie-category p {
+            color: #7f8c8d;
+            font-size: 0.9em;
+            margin-bottom: 0;
+        }
+
+        .cookies-modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .modal-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .modal-btn.save {
+            background: #3498db;
+            color: white;
+        }
+
+        .modal-btn.save:hover {
+            background: #2980b9;
+        }
+
+        .modal-btn.cancel {
+            background: #95a5a6;
+            color: white;
+        }
+
+        .modal-btn.cancel:hover {
+            background: #7f8c8d;
+        }
+
+        /* Bottom left social icons */
+        .bottom-social {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+    </style>
+    <script>
+    // Show cookies banner after slight delay (e.g., for loading effect)
+    window.addEventListener('DOMContentLoaded', () => {
+        const banner = document.querySelector('.cookies-banner');
+        if (banner) {
+            setTimeout(() => {
+                banner.classList.add('show');
+            }, 100); // Adjust delay if needed
+        }
+    });
+</script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <div class="logo">&lt;/&gt;</div>
+            <div class="hero-content">
+                <h1>TaskBot</h1>
+                <p>Stop wasting hours on boring computer tasks.<br>Get custom automation that works in minutes, not months.</p>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="problem-section">
+                <h2>Does This Sound Like You?</h2>
+                <div class="pain-points">
+                    <div class="pain-point">
+                        <h3>🎮 Macro Madness</h3>
+                        <p>"Managing my game setup manually takes forever. I need a script to automate it all."</p>
+                    </div>
+                    <div class="pain-point">
+                        <h3>📁 File Chaos</h3>
+                        <p>"I have 500 photos that need renaming in order. Doing this manually will take forever."</p>
+                    </div>
+                    <div class="pain-point">
+                        <h3>💰 Expense Nightmare</h3>
+                        <p>"I want a spreadsheet that auto-calculates my expenses by category each month without me touching it."</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-section">
+                <h2>Your Custom Automation Solution</h2>
+                <p style="text-align: center; font-size: 1.2em; margin-bottom: 30px;">I build exactly what you need. No bloated software. No monthly subscriptions. Just your problem, solved.</p>
+
+                <div class="packages">
+                    <div class="package">
+                        <h3>Quick Fix Script</h3>
+                        <div class="price">£25-40</div>
+                        <ul>
+                            <li>✅ Simple automation script</li>
+                            <li>✅ Solves 1 specific task</li>
+                            <li>✅ Works immediately</li>
+                            <li>✅ Email support included</li>
+                        </ul>
+                        <p><em>Perfect for file renaming, basic data processing, simple calculations</em></p>
+                    </div>
+
+                    <div class="package">
+                        <h3>Excel Powerhouse</h3>
+                        <div class="price">£40-75</div>
+                        <ul>
+                            <li>✅ Custom Excel/Sheets solution</li>
+                            <li>✅ Automated macros included</li>
+                            <li>✅ Multiple data sources</li>
+                            <li>✅ Setup tutorial included</li>
+                        </ul>
+                        <p><em>Great for reports, expense tracking, data analysis</em></p>
+                    </div>
+
+                    <div class="package">
+                        <h3>Custom GUI App</h3>
+                        <div class="price">£100+</div>
+                        <ul>
+                            <li>✅ Beautiful, easy-to-use interface</li>
+                            <li>✅ Complex workflow automation</li>
+                            <li>✅ Multiple features combined</li>
+                            <li>✅ Remote setup + training</li>
+                        </ul>
+                        <p><em>For comprehensive business workflows</em></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="priority-delivery">
+                <h3>🚀 Need This ASAP?</h3>
+                <p>Get your automation delivered within 24 hours - just add £10 for priority delivery!</p>
+            </div>
+
+            <div class="guarantee">
+                <h3>🛡️ 100% Money-Back Guarantee</h3>
+                <p>If your automation doesn't work exactly as promised, you get every penny back within 48 hours of delivery. No questions asked.</p>
+            </div>
+
+            <div class="social-proof">
+                <div class="testimonial">
+                    <p>"Saved me 4 hours per week on inventory updates. Paid for itself in the first month!"</p>
+                    <div class="author">- Sarah, Small Business Owner</div>
+                </div>
+                <div class="testimonial">
+                    <p>"The file renaming script handled 1000+ photos in 30 seconds. Mind blown!"</p>
+                    <div class="author">- Mike, Photographer</div>
+                </div>
+                <div class="testimonial">
+                    <p>"My expense tracking is now completely automated. I don't even think about it anymore."</p>
+                    <div class="author">- Lisa, Freelancer</div>
+                </div>
+            </div>
+
+            <div class="validation-form">
+                <h3>🚀 Get Your FREE Automation Audit</h3>
+                <p style="text-align: center; margin-bottom: 20px;">Tell me about your boring task. I'll send you a FREE plan to automate it (no commitment required).</p>
+
+                <form action="https://formspree.io/f/mrblzzve" method="POST" id="validationForm">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="task">What boring task do you want to automate?</label>
+                        <textarea id="task" name="task" rows="4" placeholder="e.g., I copy data from 5 different PDFs into Excel every Monday..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="time">How much time does this take you per week?</label>
+                        <select id="time" name="time" required>
+                            <option value="">Select time...</option>
+                            <option value="30-60 minutes">30-60 minutes</option>
+                            <option value="1-2 hours">1-2 hours</option>
+                            <option value="2-5 hours">2-5 hours</option>
+                            <option value="5+ hours">5+ hours</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="budget">What's your budget for a solution?</label>
+                        <select id="budget" name="budget" required>
+                            <option value="">Select budget...</option>
+                            <option value="£25-50">£25-50</option>
+                            <option value="£50-100">£50-100</option>
+                            <option value="£100-200">£100-200</option>
+                            <option value="£200+">£200+</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Get My FREE Automation Plan</button>
+                </form>
+            </div>
+
+            <div class="cta-section">
+                <h2>Ready to Get Your Life Back?</h2>
+                <p style="margin-bottom: 30px;">Stop doing boring computer work. Let me build you the perfect automation.</p>
+                <a href="#validationForm" class="cta-button">Start Your FREE Audit</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom left social icons -->
+    <div class="bottom-social">
+        <a href="mailto:TheCodingBox.dev@outlook.com" title="Email Support">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.89 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+        </a>
+        <a href="https://www.youtube.com/@TheCodingBox-m8v" target="_blank" title="YouTube">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+        </a>
+        <a href="https://steamcommunity.com/id/TheCodingBox" target="_blank" title="Steam">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.634 20.183 6.491 24 11.979 24c6.624 0 11.979-5.354 11.979-11.979C23.958 5.354 18.603.001 11.979.001zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.317.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.252 0-2.265-1.014-2.265-2.265z"/>
+            </svg>
+        </a>
+        <a href="https://github.com/TheCodingBox" target="_blank" title="GitHub">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+            </svg>
+        </a>
+    </div>
+
+    <script>
+        // Form now submits directly to Formspree - no JavaScript needed!
+        // After successful submission, user will see Formspree's thank you page
+        // You can customize this in your Formspree dashboard
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add some interactive elements
+        document.querySelectorAll('.package').forEach(package => {
+            package.addEventListener('click', function() {
+                const form = document.getElementById('validationForm');
+                form.scrollIntoView({ behavior: 'smooth' });
+
+                // Pre-fill budget based on package clicked
+                const price = this.querySelector('.price').textContent;
+                const budgetSelect = document.getElementById('budget');
+
+                if (price.includes('25-40')) {
+                    budgetSelect.value = '£25-50';
+                } else if (price.includes('40-75')) {
+                    budgetSelect.value = '£50-100';
+                } else if (price.includes('100+')) {
+                    budgetSelect.value = '£100-200';
+                }
+            });
+        });
+    </script>
+    <div class="cookies-banner">
+        <div class="cookies-content">
+            <div class="cookies-text">
+                <h4>We use cookies</h4>
+                <p>We use cookies to ensure you get the best experience. <a href="https://thecodingbox.github.io/privacy" target="_blank">Learn more</a></p>
+            </div>
+            <div class="cookies-buttons">
+                <button class="cookies-btn accept">Accept</button>
+                <button class="cookies-btn decline">Decline</button>
+                <button class="cookies-btn settings">Settings</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
